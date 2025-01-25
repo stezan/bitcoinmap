@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "719479606452",
+    "project_id": "bitcoin-map-13228",
+    "storage_bucket": "bitcoin-map-13228.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719479606452:android:34604d4117156fbfec9be1",
+        "android_client_info": {
+          "package_name": "com.stzan.bitcoinmap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoMbfa0slHkXveMVLGSV81uJ7w_8hwBC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

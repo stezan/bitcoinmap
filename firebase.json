@@ -1,0 +1,45 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bitcoin-map-13228",
+          "appId": "1:719479606452:android:34604d4117156fbfec9be1",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "bitcoin-map-13228",
+          "appId": "1:719479606452:ios:58c1d88eaa99ff00ec9be1",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bitcoin-map-13228",
+          "configurations": {
+            "android": "1:719479606452:android:34604d4117156fbfec9be1",
+            "ios": "1:719479606452:ios:58c1d88eaa99ff00ec9be1",
+            "web": "1:719479606452:web:42264a1899c8bca5ec9be1"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
