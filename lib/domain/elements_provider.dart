@@ -41,5 +41,14 @@ List<BitcoinShopModel> filterElements(FilterParams params) {
   final elements = params.elements;
   final filter = params.filter;
 
-  return filter == null ? elements : elements.where((element) => element.shopType != null && element.shopType!.toLowerCase() == filter).toList();
+  if (filter.shopType == null && filter.bounds == null) {
+    return elements;
+  }
+
+  return elements.where((element) {
+    final matchesBounds = filter.bounds?.contains(LatLng(element.latitude, element.longitude)) ?? true;
+    final matchesShopType =
+        filter.shopType == null || (element.shopType != null && element.shopType!.toLowerCase() == filter.shopType!.toLowerCase());
+    return matchesBounds && matchesShopType;
+  }).toList();
 }

@@ -18,9 +18,9 @@ class Header extends ConsumerWidget {
       color: Theme.of(context).colorScheme.primary.withOpacity(1),
       child: Text(
         markersAsyncValue.when(
-          data: (markers) => selectedShopType != null
-              ? '${humanizeNumberWithDotSeparator(markers.length)} ${selectedShopType.toLowerCase()} places around the world'
-              : '${humanizeNumberWithDotSeparator(markers.length)} places around the world',
+          data: (markers) => selectedShopType.shopType != null
+              ? '${humanizeNumberWithDotSeparator(markers.length)} ${selectedShopType.shopType!.toLowerCase()} places around you'
+              : '${humanizeNumberWithDotSeparator(markers.length)} places around you',
           loading: () => 'Loading...',
           error: (error, stackTrace) => 'Error: $error',
         ),

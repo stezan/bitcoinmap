@@ -19,7 +19,7 @@ class FilterScreenState extends ConsumerState<FilterScreen> {
   @override
   void initState() {
     super.initState();
-    final filter = ref.read(filterProvider.notifier).filter;
+    final filter = ref.read(filterProvider.notifier).shopType;
     if (filter != null) {
       _selectedShopType = filter;
     }
