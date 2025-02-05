@@ -12,9 +12,9 @@ const int maxClusterRadius = 100;
 const double clusterSize = 40;
 
 class ElementsMarkerCluster extends ConsumerStatefulWidget {
-  const ElementsMarkerCluster({super.key, required this.mapController});
-
   final MapController mapController;
+
+  const ElementsMarkerCluster({super.key, required this.mapController});
 
   @override
   ElementsMarkerClusterState createState() => ElementsMarkerClusterState();
@@ -27,8 +27,10 @@ class ElementsMarkerClusterState extends ConsumerState<ElementsMarkerCluster> {
   void initState() {
     super.initState();
     widget.mapController.mapEventStream.listen((event) {
-      if (event is MapEventMoveEnd) {
+      if (event is MapEventMove) {
         _loadNextBatch(ref.read(filteredMarkersProvider).value ?? []);
+        final mapBounds = widget.mapController.camera.visibleBounds;
+        //ref.read(filterProvider.notifier).setBounds(mapBounds);
       }
     });
   }
@@ -39,9 +41,7 @@ class ElementsMarkerClusterState extends ConsumerState<ElementsMarkerCluster> {
 
     return markersAsyncValue.when(
       data: (markers) {
-        if (displayedMarkersNotifier.value.isEmpty) {
-          _loadNextBatch(markers);
-        }
+        _loadNextBatch(markers);
 
         return ValueListenableBuilder<List<MarkerWithData>>(
           valueListenable: displayedMarkersNotifier,

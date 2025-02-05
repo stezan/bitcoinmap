@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../domain/user_location_provider.dart';
 import '../components/circle_button_view.dart';
 import '../components/elements_marker_cluster_view.dart';
+import '../components/header_view.dart';
 import 'filter_screen.dart';
 
 class BitcoinMapScreen extends ConsumerStatefulWidget {
@@ -69,6 +70,12 @@ class BitcoinMapViewState extends ConsumerState<BitcoinMapScreen> {
               ElementsMarkerCluster(mapController: _mapController),
               UserLocationLayer(mapController: _mapController),
             ],
+          ),
+          const Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Header(),
           ),
           Positioned(
             bottom: 16,

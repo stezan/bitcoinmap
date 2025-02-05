@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="initial commit">
+    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="added places number">
+      <change afterPath="$PROJECT_DIR$/lib/presentation/components/header_view.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/components/element_details_action_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/components/element_details_action_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/elements_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/elements_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/filter_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/filter_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/model/filter_param_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/model/filter_param_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/components/elements_marker_cluster_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/components/elements_marker_cluster_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screen/bitcoin_map_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screen/bitcoin_map_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +45,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2sBD9mK7vVWpbzBDBn8dod5FWEU" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" />
@@ -106,7 +109,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737924815154</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1737972461494</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737972461494</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added places number">
+      <option name="closed" value="true" />
+      <created>1738791121783</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738791121783</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -118,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lint" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="added places number" />
+    <option name="LAST_COMMIT_MESSAGE" value="added places number" />
   </component>
 </project>
