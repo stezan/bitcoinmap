@@ -1,13 +1,16 @@
 import '../../data/model/element.dart';
 import '../model/bitcoin_shop_model.dart';
 
-BitcoinShopModel mapToDomainModel(BitcoinShop element) {
+BitcoinShopModel? mapToDomainModel(BitcoinShop element) {
+  if (element.osmJson.tags == null) return null;
+  if (element.osmJson.tags!['name'] == null) return null;
+
   return BitcoinShopModel(
     id: element.id,
+    name: element.osmJson.tags?['name'] ?? 'Unknown',
     latitude: element.osmJson.lat ?? 0,
     longitude: element.osmJson.lon ?? 0,
     shopType: element.osmJson.tags?['shop'],
-    name: element.osmJson.tags?['name'],
     description: element.osmJson.tags?['description'],
     website: element.osmJson.tags?['contact:website'],
     phoneNumber: element.osmJson.tags?['phone'],

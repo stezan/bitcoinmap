@@ -1,6 +1,6 @@
 class BitcoinShopModel {
   final String id;
-  final String? name;
+  final String name;
   final String? description;
   final double latitude;
   final double longitude;

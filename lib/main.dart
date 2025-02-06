@@ -1,4 +1,4 @@
-import 'package:bitcoin_map/presentation/screen/bitcoin_map_screen.dart';
+import 'package:bitcoin_map/presentation/screen/bitcoin_screen.dart';
 import 'package:bitcoin_map/telegram_mini_app/telegram_mini_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system,
-      home: const BitcoinMapScreen(),
+      home: const MainScreen(),
     );
   }
 }

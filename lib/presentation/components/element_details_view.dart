@@ -20,7 +20,7 @@ class ElementDetailsSheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          element.name == null ? const SizedBox() : Text(element.name!, style: textTheme.headlineSmall),
+          Text(element.name, style: textTheme.headlineSmall),
           element.description == null ? const SizedBox() : Text(element.description!, style: textTheme.bodyMedium),
           element.shopType == null
               ? const SizedBox()

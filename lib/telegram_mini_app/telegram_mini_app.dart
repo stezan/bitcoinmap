@@ -29,7 +29,7 @@ class WebAppInitData {
 class WebAppUser {
   external String? get id;
 
-  external String? get first_name;
+  external String? get firstName;
 
-  external String? get photo_url;
+  external String? get photoUrl;
 }

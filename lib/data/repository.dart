@@ -16,7 +16,7 @@ class BitcoinShopsRepository {
     if (bitcoinShops.isEmpty) {
       bitcoinShops = await elementsDataSource.fetchBitcoinShops();
     }
-    return bitcoinShops.map((element) => mapToDomainModel(element)).toList();
+    return bitcoinShops.map((element) => mapToDomainModel(element)).whereType<BitcoinShopModel>().toList();
   }
 
   Future<List<ShopType>> fetchShopTypes() async {
