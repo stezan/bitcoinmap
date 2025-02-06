@@ -14,18 +14,18 @@ class Header extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final markersAsyncValue = ref.watch(filteredMarkersProvider);
-    final selectedShopType = ref.watch(filterProvider);
+    final filter = ref.watch(filterProvider);
 
     return Container(
       alignment: Alignment.center,
       padding: const EdgeInsets.all(8),
-      color: Theme.of(context).colorScheme.primary.withOpacity(1),
+      color: Theme.of(context).colorScheme.onPrimary,
       child: Row(
         children: [
           GestureDetector(
             child: Icon(
               Icons.filter_list,
-              color: Theme.of(context).colorScheme.onPrimary,
+              color: filter.shopType != null ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.onSurface,
               size: 32,
             ),
             onTap: () {
@@ -53,13 +53,13 @@ class Header extends ConsumerWidget {
           const SizedBox(width: 8),
           Text(
             markersAsyncValue.when(
-              data: (markers) => selectedShopType.shopType != null
-                  ? '${humanizeNumberWithDotSeparator(markers.length)} ${selectedShopType.shopType!.toLowerCase()} places in the area'
+              data: (markers) => filter.shopType != null
+                  ? '${humanizeNumberWithDotSeparator(markers.length)} ${filter.shopType!.toLowerCase()} places in the area'
                   : '${humanizeNumberWithDotSeparator(markers.length)} places in the area',
               loading: () => 'Loading...',
               error: (error, stackTrace) => 'Error: $error',
             ),
-            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onPrimary),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface),
           ),
           const Spacer(),
           VisualisationType(

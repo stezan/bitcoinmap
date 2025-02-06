@@ -11,7 +11,8 @@ class BitcoinListScreen extends ConsumerWidget {
 
     return markersAsyncValue.when(
       data: (markers) {
-        return ListView.builder(
+        return ListView.separated(
+          separatorBuilder: (context, index) => const Divider(),
           itemCount: markers.length,
           itemBuilder: (context, index) {
             final marker = markers[index];
