@@ -11,40 +11,53 @@ class ElementDetailsActionsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          MainButtonView(
+            onPressed: () async {
+              launchUrlSafe(getGoogleMapsUrl());
+            },
+            text: 'Directions',
+            icon: Icons.directions,
+          ),
+          const SizedBox(width: 8.0),
+          element.phoneNumber == null
+              ? const SizedBox()
+              : getRow(MainButtonView(
+                  onPressed: () async {
+                    final url = 'tel:${element.phoneNumber}';
+                    launchUrlSafe(url);
+                  },
+                  text: 'Call',
+                  icon: Icons.phone,
+                )),
+          element.website == null
+              ? const SizedBox()
+              : getRow(
+                  MainButtonView(
+                    onPressed: () async {
+                      final url = element.website!;
+                      launchUrlSafe(url);
+                    },
+                    text: 'Website',
+                    icon: Icons.web,
+                  ),
+                ),
+          MainButtonView(onPressed: () => onShare(), text: 'Share', icon: Icons.share)
+        ],
+      ),
+    );
+  }
+
+  Widget getRow(Widget widget) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        MainButtonView(
-          onPressed: () async {
-            launchUrlSafe(getGoogleMapsUrl());
-          },
-          text: 'Directions',
-          icon: Icons.directions,
-        ),
+        widget,
         const SizedBox(width: 8.0),
-        element.phoneNumber == null
-            ? const SizedBox()
-            : MainButtonView(
-                onPressed: () async {
-                  final url = 'tel:${element.phoneNumber}';
-                  launchUrlSafe(url);
-                },
-                text: 'Call',
-                icon: Icons.phone,
-              ),
-        const SizedBox(width: 8.0),
-        element.website == null
-            ? const SizedBox()
-            : MainButtonView(
-                onPressed: () async {
-                  final url = element.website!;
-                  launchUrlSafe(url);
-                },
-                text: 'Website',
-                icon: Icons.web,
-              ),
-        MainButtonView(onPressed: () => onShare(), text: 'Share', icon: Icons.share)
       ],
     );
   }

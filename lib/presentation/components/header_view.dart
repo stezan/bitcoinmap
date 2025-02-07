@@ -1,7 +1,6 @@
 import 'package:bitcoin_map/presentation/components/visualisation_type_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../domain/elements_provider.dart';
 import '../../domain/filter_provider.dart';
 import '../../utils/utils.dart';
 import '../screen/filter_screen.dart';
@@ -13,7 +12,7 @@ class Header extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final markersAsyncValue = ref.watch(filteredMarkersProvider);
+    final numberOfMarkers = ref.watch(displayedMarkersProvider);
     final filter = ref.watch(filterProvider);
 
     return Container(
@@ -51,15 +50,16 @@ class Header extends ConsumerWidget {
             },
           ),
           const SizedBox(width: 8),
-          Text(
-            markersAsyncValue.when(
-              data: (markers) => filter.shopType != null
-                  ? '${humanizeNumberWithDotSeparator(markers.length)} ${filter.shopType!.toLowerCase()} places in the area'
-                  : '${humanizeNumberWithDotSeparator(markers.length)} places in the area',
-              loading: () => 'Loading...',
-              error: (error, stackTrace) => 'Error: $error',
+          AnimatedSwitcher(
+            duration: const Duration(milliseconds: 250),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+            child: Text(
+              getLabelText(numberOfMarkers, filter.shopType),
+              key: ValueKey<String>(getLabelText(numberOfMarkers, filter.shopType)),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface),
             ),
-            style: TextStyle(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface),
           ),
           const Spacer(),
           VisualisationType(
@@ -69,5 +69,15 @@ class Header extends ConsumerWidget {
         ],
       ),
     );
+  }
+
+  String getLabelText(int? numberOfMarkers, String? shopType) {
+    if (numberOfMarkers == null) {
+      return 'Loading...';
+    }
+    if (shopType != null) {
+      return '${humanizeNumberWithDotSeparator(numberOfMarkers)} $shopType places in the area';
+    }
+    return '${humanizeNumberWithDotSeparator(numberOfMarkers)} places in the area';
   }
 }

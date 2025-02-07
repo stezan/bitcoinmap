@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/elements_provider.dart';
+import '../components/element_details_view.dart';
 
 class BitcoinListScreen extends ConsumerWidget {
   const BitcoinListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final markersAsyncValue = ref.watch(filteredMarkersProvider);
+    final shopsAsyncValue = ref.watch(filteredShopsProvider);
 
-    return markersAsyncValue.when(
-      data: (markers) {
+    return shopsAsyncValue.when(
+      data: (shops) {
         return ListView.separated(
           separatorBuilder: (context, index) => const Divider(),
-          itemCount: markers.length,
+          itemCount: shops.length,
           itemBuilder: (context, index) {
-            final marker = markers[index];
-            return ListTile(
-              title: Text(marker.element.name),
+            final shop = shops[index];
+            return GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
-                // Handle tap on the list item if needed
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return ElementDetailsSheet(element: shop);
+                  },
+                  showDragHandle: true,
+                );
               },
+              child: ListTile(
+                title: Text(shop.name),
+              ),
             );
           },
         );

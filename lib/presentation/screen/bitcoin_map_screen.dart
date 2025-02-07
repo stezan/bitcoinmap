@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../domain/filter_provider.dart';
 import '../../domain/user_location_provider.dart';
 import '../components/circle_button_view.dart';
 import '../components/elements_marker_cluster_view.dart';

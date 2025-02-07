@@ -31,10 +31,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           Expanded(
             child: IndexedStack(
               index: _selectedIndex,
-              children: const [
-                BitcoinMapScreen(), // Replace with your map widget
-                BitcoinListScreen(),
-              ],
+              children: const [BitcoinMapScreen(), BitcoinListScreen()],
             ),
           ),
         ],

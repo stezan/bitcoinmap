@@ -28,14 +28,8 @@ class VisualisationTypeState extends State<VisualisationType> {
     return SegmentedButton(
       showSelectedIcon: false,
       segments: const [
-        ButtonSegment(
-          value: 0,
-          icon: Icon(Icons.map),
-        ),
-        ButtonSegment(
-          value: 1,
-          icon: Icon(Icons.list),
-        ),
+        ButtonSegment(value: 0, icon: Icon(Icons.map)),
+        ButtonSegment(value: 1, icon: Icon(Icons.list)),
       ],
       selected: {selectedIndex},
       onSelectionChanged: (newSelection) {

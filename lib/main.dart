@@ -18,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage('assets/images/bitcoin_pin.png'), context);
     return MaterialApp(
       title: 'Bitcoin Map',
       theme: lightTheme,

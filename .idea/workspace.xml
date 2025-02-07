@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="added places number around you">
+    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: improved white color">
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +134,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738794652131</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added list of places and relative map">
+      <option name="closed" value="true" />
+      <created>1738855735007</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738855735007</updated>
+    </task>
+    <task id="LOCAL-00009" summary="refactor: improved white color">
+      <option name="closed" value="true" />
+      <created>1738856689061</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738856689061</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -148,6 +164,8 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="added places number" />
     <MESSAGE value="added places number around you" />
-    <option name="LAST_COMMIT_MESSAGE" value="added places number around you" />
+    <MESSAGE value="Added list of places and relative map" />
+    <MESSAGE value="refactor: improved white color" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: improved white color" />
   </component>
 </project>

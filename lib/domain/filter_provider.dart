@@ -1,6 +1,18 @@
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+class DisplayedMarkersNotifier extends StateNotifier<int?> {
+  DisplayedMarkersNotifier() : super(null);
+
+  void setDisplayedMarkers(int number) {
+    state = number;
+  }
+}
+
+final displayedMarkersProvider = StateNotifierProvider<DisplayedMarkersNotifier, int?>((ref) {
+  return DisplayedMarkersNotifier();
+});
+
 class FilterNotifier extends StateNotifier<FilterState> {
   FilterNotifier() : super(FilterState());
 
