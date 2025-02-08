@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: added around you screen">
+    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="feat: added search in shops_list_screen.dart">
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screen/shops_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screen/shops_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screen/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screen/main_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739027579893</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat: added search in shops_list_screen.dart">
+      <option name="closed" value="true" />
+      <created>1739028762174</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739028762174</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -215,6 +222,7 @@
     <MESSAGE value="refactor: improved performances" />
     <MESSAGE value="refactor: improved filter" />
     <MESSAGE value="refactor: added around you screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: added around you screen" />
+    <MESSAGE value="feat: added search in shops_list_screen.dart" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added search in shops_list_screen.dart" />
   </component>
 </project>

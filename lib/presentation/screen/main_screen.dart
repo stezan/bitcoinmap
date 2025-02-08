@@ -2,6 +2,8 @@ import 'package:bitcoin_map/presentation/screen/around_you_screen.dart';
 import 'package:bitcoin_map/presentation/screen/shops_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../telegram_mini_app/telegram_mini_app.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -28,24 +30,29 @@ class MainScreenState extends State<MainScreen> {
         ),
       ),
       bottomNavigationBar: SizedBox(
-        height: 42, // Set a short height for the bottom navigation bar
-        child: BottomNavigationBar(
-          unselectedFontSize: 0.0,
-          selectedFontSize: 0.0,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.pin_drop),
-              label: '',
+          height: 42,
+          child: SafeArea(
+            top: false,
+            right: false,
+            left: false,
+            bottom: isSupported,
+            child: BottomNavigationBar(
+              unselectedFontSize: 0.0,
+              selectedFontSize: 0.0,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.pin_drop),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.business_outlined),
+                  label: '',
+                ),
+              ],
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business_outlined),
-              label: '',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-        ),
-      ),
+          )),
     );
   }
 }
