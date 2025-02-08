@@ -4,21 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: improved filter">
-      <change afterPath="$PROJECT_DIR$/lib/domain/shops_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/presentation/components/shops_list_view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/presentation/screen/main_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/presentation/screen/shops_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/source/elements_data_source.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/source/elements_data_source.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/elements_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/elements_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/mapper/element_mapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/mapper/element_mapper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/domain/model/bitcoin_shop_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/model/bitcoin_shop_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/components/element_details_action_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/components/element_details_action_view.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screen/bitcoin_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screen/bitcoin_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/screen/bitcoin_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screen/around_you_screen.dart" afterDir="false" />
+    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: added around you screen">
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739021405337</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="refactor: added around you screen">
+      <option name="closed" value="true" />
+      <created>1739027074768</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739027074768</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -209,6 +205,7 @@
     <MESSAGE value="refactor: improved white color" />
     <MESSAGE value="refactor: improved performances" />
     <MESSAGE value="refactor: improved filter" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: improved filter" />
+    <MESSAGE value="refactor: added around you screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: added around you screen" />
   </component>
 </project>

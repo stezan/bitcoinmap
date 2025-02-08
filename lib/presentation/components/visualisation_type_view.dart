@@ -27,9 +27,14 @@ class VisualisationTypeState extends State<VisualisationType> {
   Widget build(BuildContext context) {
     return SegmentedButton(
       showSelectedIcon: false,
-      segments: const [
-        ButtonSegment(value: 0, icon: Icon(Icons.map)),
-        ButtonSegment(value: 1, icon: Icon(Icons.list)),
+      segments: [
+        ButtonSegment(
+            value: 0,
+            icon: Icon(
+              Icons.map,
+              color: Theme.of(context).colorScheme.onSurface,
+            )),
+        ButtonSegment(value: 1, icon: Icon(Icons.list, color: Theme.of(context).colorScheme.onSurface)),
       ],
       selected: {selectedIndex},
       onSelectionChanged: (newSelection) {

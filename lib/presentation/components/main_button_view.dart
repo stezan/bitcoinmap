@@ -20,7 +20,12 @@ class MainButtonView extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       onPressed: onPressed,
-      icon: icon != null ? Icon(icon) : const SizedBox.shrink(),
+      icon: icon != null
+          ? Icon(
+              icon,
+              color: Theme.of(context).colorScheme.onPrimary,
+            )
+          : const SizedBox.shrink(),
       label: Text(text),
     );
   }
