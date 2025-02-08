@@ -14,7 +14,7 @@ class BitcoinShopsDataSource {
       throw Exception('Failed to load elements');
     }
 
-    final List<dynamic> bitcoinShopsJson = json.decode(response.body);
+    final List<dynamic> bitcoinShopsJson = json.decode(utf8.decode(response.bodyBytes));
     return bitcoinShopsJson.map((json) => BitcoinShop.fromJson(json)).toList();
   }
 }

@@ -25,16 +25,6 @@ class ElementDetailsActionsView extends StatelessWidget {
             icon: Icons.directions,
           ),
           const SizedBox(width: 8.0),
-          element.phoneNumber == null
-              ? const SizedBox()
-              : getRow(MainButtonView(
-                  onPressed: () async {
-                    final url = 'tel:${element.phoneNumber}';
-                    launchUrlSafe(url);
-                  },
-                  text: 'Call',
-                  icon: Icons.phone,
-                )),
           element.website == null
               ? const SizedBox()
               : getRow(
@@ -47,6 +37,26 @@ class ElementDetailsActionsView extends StatelessWidget {
                     icon: Icons.web,
                   ),
                 ),
+          element.phoneNumber == null
+              ? const SizedBox()
+              : getRow(MainButtonView(
+                  onPressed: () async {
+                    final url = 'tel:${element.phoneNumber}';
+                    launchUrlSafe(url);
+                  },
+                  text: 'Call',
+                  icon: Icons.phone,
+                )),
+          element.email == null
+              ? const SizedBox()
+              : getRow(MainButtonView(
+                  onPressed: () async {
+                    final url = 'mailto:${element.email}';
+                    launchUrlSafe(url);
+                  },
+                  text: 'Email',
+                  icon: Icons.email,
+                )),
           MainButtonView(onPressed: () => onShare(), text: 'Share', icon: Icons.share)
         ],
       ),

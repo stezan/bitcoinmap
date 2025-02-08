@@ -1,14 +1,14 @@
-import 'package:bitcoin_map/presentation/components/shops_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../domain/elements_provider.dart';
+import '../../domain/shops_provider.dart';
+import '../components/shops_list_view.dart';
 
-class BitcoinListScreen extends ConsumerWidget {
-  const BitcoinListScreen({super.key});
+class ShopsListScreen extends ConsumerWidget {
+  const ShopsListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final shopsAsyncValue = ref.watch(filteredShopsProvider);
+    final shopsAsyncValue = ref.watch(shopsProvider);
 
     return shopsAsyncValue.when(
       data: (shops) {

@@ -14,6 +14,7 @@ BitcoinShopModel? mapToDomainModel(BitcoinShop element) {
     description: element.osmJson.tags?['description'],
     website: element.osmJson.tags?['contact:website'],
     phoneNumber: element.osmJson.tags?['phone'],
+    email: element.osmJson.tags?['email'],
     postalCode: element.osmJson.tags?['addr:postcode'],
     street: element.osmJson.tags?['addr:street'],
     houseNumber: element.osmJson.tags?['addr:housenumber'],

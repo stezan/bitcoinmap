@@ -1,4 +1,4 @@
-import 'package:bitcoin_map/presentation/screen/bitcoin_screen.dart';
+import 'package:bitcoin_map/presentation/screen/main_screen.dart';
 import 'package:bitcoin_map/telegram_mini_app/telegram_mini_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

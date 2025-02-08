@@ -1,4 +1,4 @@
-import 'package:bitcoin_map/domain/repository_provider.dart';
+import 'package:bitcoin_map/domain/shops_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:latlong2/latlong.dart';
@@ -7,15 +7,9 @@ import 'model/bitcoin_shop_model.dart';
 import 'model/filter_param_model.dart';
 
 final filteredShopsProvider = FutureProvider<List<BitcoinShopModel>>((ref) async {
-  final bitcoinShops = await ref.watch(_bitcoinShopsProvider.future);
+  final bitcoinShops = await ref.watch(shopsProvider.future);
   final filter = ref.watch(filterProvider);
   return compute(filterElements, FilterParams(bitcoinShops, filter));
-});
-
-final _bitcoinShopsProvider = FutureProvider<List<BitcoinShopModel>>((ref) async {
-  final repository = ref.read(bitcoinRepositoryProvider);
-  final elements = await repository.fetchBitcoinShops();
-  return elements;
 });
 
 List<BitcoinShopModel> filterElements(FilterParams params) {

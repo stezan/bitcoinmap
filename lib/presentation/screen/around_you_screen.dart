@@ -5,14 +5,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../components/header_view.dart';
 import 'bitcoin_list_screen.dart';
 
-class MainScreen extends ConsumerStatefulWidget {
-  const MainScreen({super.key});
+class AroundYouScreen extends ConsumerStatefulWidget {
+  const AroundYouScreen({super.key});
 
   @override
-  ConsumerState<MainScreen> createState() => _MainScreenState();
+  ConsumerState<AroundYouScreen> createState() => _AroundYouScreenScreenState();
 }
 
-class _MainScreenState extends ConsumerState<MainScreen> {
+class _AroundYouScreenScreenState extends ConsumerState<AroundYouScreen> {
   int _selectedIndex = 0;
 
   @override
