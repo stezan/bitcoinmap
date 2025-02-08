@@ -24,7 +24,8 @@ class ElementsMarkerCluster extends ConsumerStatefulWidget {
 
 class ElementsMarkerClusterState extends ConsumerState<ElementsMarkerCluster> {
   Timer? _debounce;
-  final ValueNotifier<List<MarkerWithData>> displayedMarkersNotifier = ValueNotifier([]);
+  bool firstLoad = true;
+  List<MarkerWithData> displayedMarkers = [];
 
   @override
   void initState() {
@@ -33,7 +34,8 @@ class ElementsMarkerClusterState extends ConsumerState<ElementsMarkerCluster> {
       if (event is MapEventMove) {
         if (_debounce?.isActive ?? false) _debounce?.cancel();
         _debounce = Timer(const Duration(milliseconds: 150), () {
-          _loadNextBatch(ref.read(filteredMarkersProvider).value ?? []);
+          final mapBounds = widget.mapController.camera.visibleBounds;
+          ref.read(filterProvider.notifier).setBounds(mapBounds);
         });
       }
     });
@@ -45,49 +47,40 @@ class ElementsMarkerClusterState extends ConsumerState<ElementsMarkerCluster> {
 
     return markersAsyncValue.when(
       data: (markers) {
-        return ValueListenableBuilder<List<MarkerWithData>>(
-            valueListenable: displayedMarkersNotifier,
-            builder: (context, displayedMarkers, child) {
-              return MarkerClusterLayerWidget(
-                options: MarkerClusterLayerOptions(
-                  centerMarkerOnClick: false,
-                  maxClusterRadius: maxClusterRadius,
-                  size: const Size(clusterSize, clusterSize),
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(50),
-                  maxZoom: 15,
-                  showPolygon: false,
-                  onMarkerTap: (marker) {
-                    final element = (marker as MarkerWithData).element;
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (context) {
-                        return ElementDetailsSheet(element: element);
-                      },
-                      showDragHandle: true,
-                    );
-                  },
-                  markers: displayedMarkers,
-                  builder: (context, markers) {
-                    return ClusterContainer(markerCount: markers.length);
-                  },
-                ),
-              );
-            });
+        firstLoad = false;
+        displayedMarkers = markers;
+        return getMarketClusterLayerWidget();
       },
-      loading: () => const Center(child: LoadingOverlayView()),
+      loading: () => firstLoad ? Center(child: LoadingOverlayView()) : getMarketClusterLayerWidget(),
       error: (error, stack) => Center(child: Text('Error: $error')),
     );
   }
 
-  void _loadNextBatch(List<MarkerWithData> markers) {
-    final mapBounds = widget.mapController.camera.visibleBounds;
-    final markersInBounds = markers.where((marker) {
-      return mapBounds.contains(marker.point);
-    }).toList();
-
-    ref.read(displayedMarkersProvider.notifier).setDisplayedMarkers(markersInBounds.length);
-
-    displayedMarkersNotifier.value = [...markersInBounds];
+  Widget getMarketClusterLayerWidget() {
+    return MarkerClusterLayerWidget(
+      options: MarkerClusterLayerOptions(
+        centerMarkerOnClick: false,
+        maxClusterRadius: maxClusterRadius,
+        size: const Size(clusterSize, clusterSize),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(50),
+        maxZoom: 15,
+        showPolygon: false,
+        onMarkerTap: (marker) {
+          final element = (marker as MarkerWithData).element;
+          showModalBottomSheet(
+            context: context,
+            builder: (context) {
+              return ElementDetailsSheet(element: element);
+            },
+            showDragHandle: true,
+          );
+        },
+        markers: displayedMarkers,
+        builder: (context, markers) {
+          return ClusterContainer(markerCount: markers.length);
+        },
+      ),
+    );
   }
 }

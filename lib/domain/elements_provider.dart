@@ -7,13 +7,8 @@ import 'model/bitcoin_shop_model.dart';
 import 'model/filter_param_model.dart';
 
 final filteredShopsProvider = FutureProvider<List<BitcoinShopModel>>((ref) async {
-  print('filteredShopsProvider');
   final bitcoinShops = await ref.watch(_bitcoinShopsProvider.future);
-  print('filteredShopsProvider: ${bitcoinShops.length}');
   final filter = ref.watch(filterProvider);
-
-  print('filteredShopsProvider: ${filter.shopType} ${filter.bounds}');
-
   return compute(filterElements, FilterParams(bitcoinShops, filter));
 });
 

@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: improved white color">
+    <list default="true" id="09ea86ed-0949-410c-b48a-1570cfce70c0" name="Changes" comment="refactor: improved performances">
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQvd2Vi.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/elements_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/elements_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/domain/filter_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/domain/filter_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/components/elements_marker_cluster_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/components/elements_marker_cluster_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/components/header_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/components/header_view.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738856689061</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactor: improved performances">
+      <option name="closed" value="true" />
+      <created>1738944905987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738944905987</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -159,6 +172,17 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lint" />
     <MESSAGE value="initial commit" />
@@ -166,6 +190,7 @@
     <MESSAGE value="added places number around you" />
     <MESSAGE value="Added list of places and relative map" />
     <MESSAGE value="refactor: improved white color" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: improved white color" />
+    <MESSAGE value="refactor: improved performances" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: improved performances" />
   </component>
 </project>

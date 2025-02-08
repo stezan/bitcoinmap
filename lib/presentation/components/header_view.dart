@@ -1,3 +1,5 @@
+import 'package:bitcoin_map/domain/elements_provider.dart';
+import 'package:bitcoin_map/domain/model/bitcoin_shop_model.dart';
 import 'package:bitcoin_map/presentation/components/visualisation_type_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +14,7 @@ class Header extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final numberOfMarkers = ref.watch(displayedMarkersProvider);
+    final numberOfMarkers = ref.watch(filteredShopsProvider);
     final filter = ref.watch(filterProvider);
 
     return Container(
@@ -71,13 +73,15 @@ class Header extends ConsumerWidget {
     );
   }
 
-  String getLabelText(int? numberOfMarkers, String? shopType) {
-    if (numberOfMarkers == null) {
-      return 'Loading...';
-    }
-    if (shopType != null) {
-      return '${humanizeNumberWithDotSeparator(numberOfMarkers)} $shopType places in the area';
-    }
-    return '${humanizeNumberWithDotSeparator(numberOfMarkers)} places in the area';
+  String getLabelText(AsyncValue<List<BitcoinShopModel>> shops, String? shopType) {
+    return shops.when(
+        data: (shops) {
+          if (shopType != null) {
+            return '${humanizeNumberWithDotSeparator(shops.length)} $shopType places in the area';
+          }
+          return '${humanizeNumberWithDotSeparator(shops.length)} places in the area';
+        },
+        error: (error, stackTrace) => 'Error loading data',
+        loading: () => 'Loading...');
   }
 }
