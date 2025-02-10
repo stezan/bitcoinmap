@@ -1,10 +1,10 @@
 import 'package:bitcoin_map/presentation/components/shop_type_view.dart';
 import 'package:flutter/material.dart';
-import '../../domain/model/bitcoin_shop_model.dart' as domain_element;
+import '../../domain/model/bitcoin_shop_model.dart';
 import 'element_details_action_view.dart';
 
 class ElementDetailsSheet extends StatelessWidget {
-  final domain_element.BitcoinShopModel element;
+  final BitcoinShopModel element;
 
   const ElementDetailsSheet({super.key, required this.element});
 

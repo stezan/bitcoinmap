@@ -1,4 +1,5 @@
 import 'package:bitcoin_map/presentation/screen/around_you_screen.dart';
+import 'package:bitcoin_map/presentation/screen/communities_screen.dart';
 import 'package:bitcoin_map/presentation/screen/shops_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,11 +27,11 @@ class MainScreenState extends State<MainScreen> {
       body: Center(
         child: IndexedStack(
           index: _selectedIndex,
-          children: const [AroundYouScreen(), ShopsListScreen()],
+          children: const [AroundYouScreen(), ShopsListScreen(), CommunitiesScreen()],
         ),
       ),
       bottomNavigationBar: SizedBox(
-          height: 42,
+          height: isSupported ? 56 : 42,
           child: SafeArea(
             top: false,
             right: false,
@@ -40,14 +41,9 @@ class MainScreenState extends State<MainScreen> {
               unselectedFontSize: 0.0,
               selectedFontSize: 0.0,
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.pin_drop),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.business_outlined),
-                  label: '',
-                ),
+                BottomNavigationBarItem(icon: Icon(Icons.pin_drop), label: ''),
+                BottomNavigationBarItem(icon: Icon(Icons.business_outlined), label: ''),
+                BottomNavigationBarItem(icon: Icon(Icons.people_alt), label: ''),
               ],
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,

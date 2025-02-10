@@ -2,7 +2,10 @@ import 'package:bitcoin_map/domain/model/bitcoin_shop_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../domain/shops_provider.dart';
-import '../components/shops_list_view.dart';
+import '../components/element_details_view.dart';
+import '../components/section_header_view.dart';
+import '../components/list/shops_list_view.dart';
+import 'package:bitcoin_map/presentation/components/list/list_ui_model.dart';
 
 class ShopsListScreen extends ConsumerStatefulWidget {
   const ShopsListScreen({super.key});
@@ -26,33 +29,30 @@ class _ShopsListScreenState extends ConsumerState<ShopsListScreen> {
 
         return Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(8),
-              color: Theme.of(context).colorScheme.onPrimary,
-              child: Row(
-                children: [
-                  Text("${filteredShops.length.toString()} shops found"),
-                  Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      showSearch(
-                        context: context,
-                        delegate: ShopsSearchDelegate(
-                          shops: shops,
-                          onSearch: (query) {
-                            setState(() {
-                              _searchQuery = query;
-                            });
-                          },
-                        ),
-                      );
-                    },
-                    icon: Icon(Icons.search),
-                  ),
-                ],
+            SectionHeaderView(
+              count: filteredShops.length,
+              searchDelegate: ShopsSearchDelegate(
+                shops: shops,
+                onSearch: (query) {
+                  setState(() {
+                    _searchQuery = query;
+                  });
+                },
               ),
             ),
-            Expanded(child: ShopsListView(shops: filteredShops)),
+            Expanded(
+              child: ShopsListView(
+                  models: filteredShops.map((shop) => ListUiModel(title: shop.name, subtitle: shop.getAddress())).toList(),
+                  onTap: (index) {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) {
+                        return ElementDetailsSheet(element: shops[index]);
+                      },
+                      showDragHandle: true,
+                    );
+                  }),
+            ),
           ],
         );
       },
@@ -97,7 +97,7 @@ class ShopsSearchDelegate extends SearchDelegate<String> {
       return shop.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
 
-    return ShopsListView(shops: results);
+    return ShopsListView(models: results.map((shop) => ListUiModel(title: shop.name, subtitle: shop.getAddress())).toList(), onTap: (index) {});
   }
 
   @override
@@ -106,6 +106,6 @@ class ShopsSearchDelegate extends SearchDelegate<String> {
       return shop.name.toLowerCase().contains(query.toLowerCase());
     }).toList();
 
-    return ShopsListView(shops: suggestions);
+    return ShopsListView(models: suggestions.map((shop) => ListUiModel(title: shop.name, subtitle: shop.getAddress())).toList(), onTap: (index) {});
   }
 }

@@ -1,4 +1,4 @@
-import '../../data/model/element.dart';
+import '../../data/model/bitcoin_shop.dart';
 import '../model/bitcoin_shop_model.dart';
 
 BitcoinShopModel? mapToDomainModel(BitcoinShop element) {
